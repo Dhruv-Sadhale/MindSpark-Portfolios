@@ -32,6 +32,9 @@ $darkColor: #232223; // Dark color for icons
       border-radius: 10%;
       cursor: pointer;
       transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+      display: flex;
+      justify-content: center; // Center horizontally
+      align-items: center; // Center vertically
 
       @for $i from 1 through length($optionDefaultColours) {
         &:nth-child(#{$i}) {
@@ -42,16 +45,18 @@ $darkColor: #232223; // Dark color for icons
       .label {
         position: absolute;
         left: 0;
-        bottom: 0;
+        top: 50%; // Position at 50% from top
+        transform: translateY(-50%); // Center vertically using translateY
         width: 100%;
         padding: 10px;
         box-sizing: border-box;
         background-color: rgba(0, 0, 0, 0.7); // Semi-transparent background
         color: white;
         transition: .3s;
+        text-align: center; // Center align text within the label
 
         .info {
-          text-align: center;
+          text-align: left; // Left-align text within .info
 
           .main {
             font-weight: bold;
@@ -90,9 +95,10 @@ $darkColor: #232223; // Dark color for icons
       .label {
         position: relative; // Switch back to relative positioning for labels
         width: 100%;
-        bottom: auto; // Reset bottom position for stacking cards
-        left: auto; // Reset left position for stacking cards
+        top: 0; // Reset top position for stacking cards
+        transform: none; // Reset transform
         padding: 10px; // Adjust padding as needed for smaller screens
+        text-align: center; // Center-align text within the label on smaller screens
       }
     }
   }

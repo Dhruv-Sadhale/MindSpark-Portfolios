@@ -17,7 +17,7 @@ const portfolios=[
     {
         id:4,
         portfolio:"Design",
-        desc:"Create mesmerizing posters and innovative social media graphics that captivate and engage audiences."
+        desc:"Craft engaging posters and social media visuals to give Mindspark an aesthetic edge."
     },
     {
         id:5,
@@ -48,7 +48,7 @@ const portfolios=[
     {
         id:10,
         portfolio:"Public Relations and Outreach",
-        desc:"Promotes maximizing public awareness through strategic marketing campaigns ensuring enthusiastic participation."
+        desc:"Promotes maximization of public awareness through strategic marketing campaigns ensuring enthusiastic participation."
     },
     
    
