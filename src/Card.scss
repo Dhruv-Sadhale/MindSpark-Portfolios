@@ -2,12 +2,13 @@ $optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC, #AC
 $darkColor: #232223; // Dark color for icons
 
 .cardContainer-parent {
+  position: relative; // Ensure relative positioning for z-index and absolute children
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:baseline;
   align-items: center;
-  overflow: hidden;
-  height: 500px;
+  overflow-y: auto;
+  height: 5000px; // Adjust this height as needed
   font-family: 'Roboto', sans-serif;
   transition: .25s;
 
@@ -19,30 +20,22 @@ $darkColor: #232223; // Dark color for icons
   }
 
   .cardContainer {
+    position: relative; // Ensure relative positioning for z-index and absolute children
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    overflow: hidden;
-    min-width: 600px;
-    max-width: 900px;
+    align-items: center; // Center cards horizontally
+    overflow-y: auto; // Enable vertical scrolling for excess content
+    max-height: 100%; // Ensure container does not exceed parent's height
+    overflow-x: hidden; // Hide horizontal scrollbar if unnecessary
     width: calc(100% - 100px);
-    height: 400px;
-
-    @for $i from 0 through length($optionDefaultColours) - 1 {
-      $width: 798px - $i * 80;
-      @media screen and (max-width: $width) {
-        .options {
-          min-width: #{600px - $i * 100};
-        }
-      }
-    }
 
     .option {
       position: relative;
       overflow: hidden;
+      width: 100%; // Each card takes full width of its container
       min-width: 200px; // Increased minimum width for inactive cards
       min-height: 120px; // Increased minimum height for inactive cards
-      margin: 10px;
+      margin: 10px 0; // Adjust margin between cards vertically
       background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
       background-size: auto 120%;
       background-position: center;
@@ -70,14 +63,16 @@ $darkColor: #232223; // Dark color for icons
         right: 0px;
         height: auto;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        left: 0; // Start label content from leftmost part of the card
+        transform: translateY(-50%);
         transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+        justify-content: center;
+        align-items: center;
 
         .icon {
           display: flex;
           justify-content: center;
-          align-items: flex-end; /* Align icon to the bottom of the card */
+          align-items: center;
           min-width: 40px;
           max-width: 40px;
           height: 40px;
@@ -87,9 +82,6 @@ $darkColor: #232223; // Dark color for icons
           font-size: 1.2rem; // Adjust font size as needed
           font-weight: bold; // Ensure icon text is bold
           text-transform: uppercase; // Ensure uppercase letters
-          display: flex;
-          justify-content: center;
-          align-items: center;
           i {
             font-size: 1.5rem; // Adjust icon size within the icon container
           }
@@ -98,7 +90,8 @@ $darkColor: #232223; // Dark color for icons
         .info {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start; // Start content from the top
+          align-items: center; // Center align content horizontally
           margin-left: 10px;
           color: white;
           white-space: pre-wrap;
@@ -128,8 +121,8 @@ $darkColor: #232223; // Dark color for icons
       &.active {
         flex-grow: 10000;
         transform: scale(1);
-        max-width: 600px;
-        max-height: 500px; // Increased max height for active card
+        max-width: 1000px; // Adjusted maximum width for active card
+        max-height: 600px; // Adjusted maximum height for active card
         margin: 0px;
         border-radius: 40px;
         background-size: auto 100%;
@@ -142,7 +135,11 @@ $darkColor: #232223; // Dark color for icons
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          flex-direction: row; // Display label content horizontally
+          flex-direction: column; // Display label content vertically
+
+          .icon {
+            margin-bottom: 10px; // Adjust spacing between icon and text
+          }
 
           .info > div {
             opacity: 1; /* Show additional text when card is active */
@@ -163,16 +160,17 @@ $darkColor: #232223; // Dark color for icons
 
         .label {
           top: 0%; /* Move label to the bottom of the card */
-          left: 45%;
-          transform: translateX(-50%);
+          left: 0; // Start label content from leftmost part of the card
+          transform: translateY(20%);
           flex-direction: column; // Display label content vertically
 
           .icon {
+            margin-bottom: 10px; // Adjust spacing between icon and text
             opacity: 1; /* Ensure icon is always visible */
           }
 
-          .info > div {
-            opacity: 0; /* Hide additional text when card is not active */
+          .info > .main {
+            opacity: 1; /* Show additional text when card is inactive */
           }
         }
       }
