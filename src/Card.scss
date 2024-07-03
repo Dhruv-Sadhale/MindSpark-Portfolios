@@ -1,44 +1,35 @@
-$optionDefaultColours:#ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC, #967ADC, #DA4453, #F6BB42, #37BC9B, #3BAFDA, #967ADC, #AAB2BD;
+$optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC, #967ADC, #DA4453, #F6BB42, #37BC9B, #3BAFDA, #967ADC, #AAB2BD, #E74C3C, #9B59B6;
+
 $darkColor: #232223; // Dark color for icons
 
 .cardContainer-parent {
-  position: relative; // Ensure relative positioning for z-index and absolute children
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: baseline;
+  justify-content: center;
   align-items: center;
   overflow-y: auto;
-  height: 2500px; // Adjust this height as needed
+  height: 3300px; // Adjust as needed
   font-family: 'Roboto', sans-serif;
-  transition: .25s;
-
-  .credit {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: inherit;
-  }
 
   .cardContainer {
-    position: relative; // Ensure relative positioning for z-index and absolute children
     display: flex;
-    flex-direction: column;
-    align-items: center; // Center cards horizontally
-    overflow-y: auto; // Enable vertical scrolling for excess content
-    max-height: 100%; // Ensure container does not exceed parent's height
-    overflow-x: hidden; // Hide horizontal scrollbar if unnecessary
-    width: calc(100% - 100px);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; // Adjust max-width as needed
 
     .option {
       position: relative;
-      overflow: hidden;
-      width: 100%; // Each card takes full width of its container
-      min-width: 200px; // Increased minimum width for inactive cards
-      min-height: 120px; // Increased minimum height for inactive cards
-      margin: 10px 0; // Adjust margin between cards vertically
+      width: calc(33.33% - 20px); // Adjust for responsive grid
+      min-width: 200px;
+      height: 200px; // Adjust height as needed
+      margin: 10px;
       background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
-      background-size: auto 120%;
+      background-size: cover;
       background-position: center;
+      border-radius: 10%;
       cursor: pointer;
       transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
 
@@ -48,191 +39,61 @@ $darkColor: #232223; // Dark color for icons
         }
       }
 
-      .shadow {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        height: 120px;
-        transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
-      }
-
       .label {
-        display: flex;
         position: absolute;
-        right: 0px;
-        height: 100%;
-        top: 50%;
-        left: 0; // Start label content from leftmost part of the card
-        transform: translateY(-50%);
-        transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
-        justify-content: center;
-        align-items: center;
-
-        .icon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-width: 40px;
-          max-width: 40px;
-          height: 40px;
-          border-radius: 100%;
-          background-color: $darkColor; // Use dark color for icon background
-          color: white; // Ensure icon text is visible
-          font-size: 1.2rem; // Adjust font size as needed
-          font-weight: bold; // Ensure icon text is bold
-          text-transform: uppercase; // Ensure uppercase letters
-          i {
-            font-size: 1.5rem; // Adjust icon size within the icon container
-          }
-        }
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: rgba(0, 0, 0, 0.7); // Semi-transparent background
+        color: white;
+        transition: .3s;
 
         .info {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start; // Start content from the top
-          align-items: center; // Center align content horizontally
-          margin-left: 0px;
-          color: white;
-          width: 1000px; // Ensure .info spans the entire width of .option
-          padding: 0 20px; // Optional: Add padding for spacing inside .info
-          overflow: hidden;
-          
+          text-align: center;
 
           .main {
             font-weight: bold;
             font-size: 1.2rem;
-            opacity: 1; /* Ensure title is always visible */
+            margin-bottom: 5px;
             text-transform: uppercase;
-          
-            margin-bottom: 5px; /* Adjust spacing between title and additional text */
-          }
-
-          > div:not(.main) {
-            position: relative;
-            transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
-            opacity: 0; /* Hide additional text when card is not active */
-            margin-top: 5px; /* Adjust spacing between additional text blocks */
           }
 
           .sub {
-            transition-delay: .1s;
-            white-space: pre-wrap;
-            width: 100%;
-            padding-left: 20px;
-            text-align: center;
-            word-wrap: break-word; /* Allows long words to break and wrap to the next line */
+            font-size: 0.9rem;
+            opacity: 1; // Ensure subtext is always visible
+            text-align: left; // Left-align the text in .sub
           }
         }
       }
 
-      &.active {
-        flex-grow: 10000;
-        transform: scale(1);
-        max-width: 1100px; // Adjusted maximum width for active card
-        max-height: 600px; // Adjusted maximum height for active card
-        margin: 0px;
-        border-radius: 40px;
-        background-size: auto 100%;
-
-        .shadow {
-          box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
-        }
-
-        .label {
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          flex-direction: column; // Display label content vertically
-
-          .icon {
-            margin-bottom: 10px; // Adjust spacing between icon and text
-          }
-
-          .info > div {
-            opacity: 1; /* Show additional text when card is active */
-            
-          }
-        }
-      }
-
-      &:not(.active) {
-        flex-grow: 1;
-        border-radius: 30px;
-        min-width: 200px; // Ensure minimum width for inactive cards
-        min-height: 120px; // Ensure minimum height for inactive cards
-
-        .shadow {
-          bottom: -40px;
-          box-shadow: inset 0 -120px 0 -120px black, inset 0 -120px 0 -100px black;
-        }
-
-        .label {
-          top: 0%; /* Move label to the bottom of the card */
-          left: 0; // Start label content from leftmost part of the card
-          transform: translateY(20%);
-          flex-direction: column; // Display label content vertically
-
-          .icon {
-            margin-bottom: 10px; // Adjust spacing between icon and text
-            opacity: 1; /* Ensure icon is always visible */
-          }
-
-          .info > .main {
-            opacity: 1; /* Show additional text when card is inactive */
-          }
-        }
+      &:hover .label {
+        background-color: rgba(0, 0, 0, 0.9); // Darken background on hover
       }
     }
   }
 }
-.info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 10px;
-  color: white;
-  width: 100%;
-  padding: 0 10px;
-  overflow: hidden;
 
-  .main {
-    font-weight: bold;
-    font-size: 1.2rem;
-    opacity: 1;
-    text-transform: uppercase;
-    margin-bottom: 5px;
+@media (max-width: 1024px) {
+  .cardContainer-parent {
+    height: auto; // Adjust height for smaller screens
   }
 
-  > div:not(.main) {
-    position: relative;
-    transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
-    opacity: 0;
-    margin-top: 5px;
-    font-weight: bold;
-    &:before {
-      
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: 1.2rem;
-    }
-    &:after {
-      
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      font-size: 1.2rem;
-    }
-  }
+  .cardContainer {
+    flex-direction: column; // Stack cards vertically on smaller screens
 
-  .sub {
-    transition-delay: .1s;
-    white-space: pre-wrap;
-    width: 100%;
-    padding-left: 40px;
-    word-wrap: break-word;
+    .option {
+      width: 100%; // Full width for each card on smaller screens
+      margin: 10px 0;
+
+      .label {
+        position: relative; // Switch back to relative positioning for labels
+        width: 100%;
+        bottom: auto; // Reset bottom position for stacking cards
+        left: auto; // Reset left position for stacking cards
+        padding: 10px; // Adjust padding as needed for smaller screens
+      }
+    }
   }
 }
-

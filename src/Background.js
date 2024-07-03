@@ -13,18 +13,18 @@ const Background = () => {
     function init() {
       scene = new THREE.Scene();
     
-      camera = new THREE.PerspectiveCamera(75, window.innerWidth / 3500, 1, 1000);
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / 4300, 1, 1000);
       camera.position.z = 100;
     
       renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvasRef.current });
-      renderer.setSize(window.innerWidth, 3500);
+      renderer.setSize(window.innerWidth, 4300);
     
       // Create stars
       const geometry = new THREE.BufferGeometry();
       const vertices = [];
-      const aspectRatio = window.innerWidth / 3500; // Aspect ratio adjustment
+      const aspectRatio = window.innerWidth / 4300; // Aspect ratio adjustment
     
-      for (let i = 0; i < 35000; i++) { // Increased number of stars
+      for (let i = 0; i < 43000; i++) { // Increased number of stars
         const x = Math.random() * 800 * aspectRatio - (600 * aspectRatio); // Adjusted range for x position
         const y = Math.random() * 800 - 1000; // Adjusted range for y position
         const z = Math.random() * 1000 ; // Adjusted range for z position
@@ -53,22 +53,22 @@ const Background = () => {
 
       // Move stars based on mouse position
       stars.position.x = (window.innerWidth / 2 - window.mouseX) * 0.1;
-      stars.position.y = (3500 / 2 - window.mouseY) * 0.1; // Adjusted for 3500px height
+      stars.position.y = (4300 / 2 - window.mouseY) * 0.1; // Adjusted for 4300px height
 
       renderer.render(scene, camera);
     }
 
     // Handle window resize
     function handleResize() {
-      camera.aspect = window.innerWidth / 3500; // Adjusted for 3500px height
+      camera.aspect = window.innerWidth / 4300; // Adjusted for 4300px height
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, 3500); // Adjusted for 3500px height
+      renderer.setSize(window.innerWidth, 4300); // Adjusted for 4300px height
     }
 
     // Mouse move handler
     function handleMouseMove(event) {
       window.mouseX = event.clientX - window.innerWidth / 2;
-      window.mouseY = event.clientY - 3500 / 2; // Adjusted for 3500px height
+      window.mouseY = event.clientY - 4300 / 2; // Adjusted for 4300px height
     }
 
     // Check if refs are initialized before calling init
