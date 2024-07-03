@@ -6,7 +6,7 @@ const portfolios=[
     },
     {
         id:2,
-        portfolio:"Campus Management and Decor",
+        portfolio:"Campus Management & Decor",
         desc:"Showcase your tech-inspired creativity to adorn the campus for the fest."
     },
     {
@@ -17,12 +17,12 @@ const portfolios=[
     {
         id:4,
         portfolio:"Design",
-        desc:"Craft engaging posters and social media visuals to give Mindspark an aesthetic edge."
+        desc:"Craft engaging posters and social media visuals to give MindSpark an aesthetic edge."
     },
     {
         id:5,
         portfolio:"Electronic System Management",
-        desc:"Managing a Comprehensive array of audio equipment and electronic gadgets for a seamless experience."
+        desc:"Managing a comprehensive array of audio equipment and electronic gadgets for a seamless experience."
     },
     {
         id:6,
@@ -47,7 +47,7 @@ const portfolios=[
     },
     {
         id:10,
-        portfolio:"Public Relations and Outreach",
+        portfolio:"Public Relations & Outreach",
         desc:"Promotes maximization of public awareness through strategic marketing campaigns ensuring enthusiastic participation."
     },
     
@@ -60,7 +60,7 @@ const portfolios=[
     },
     {
         id:12,
-        portfolio:"Refreshments and hospitality",
+        portfolio:"Refreshments & hospitality",
         desc:"We cater the best hospitality in the fest, that is how we retain people coming to the fest."
     },
     {
@@ -72,12 +72,12 @@ const portfolios=[
     {
         id:14,
         portfolio:"VFX",
-        desc:"Dive into a mesmerizing showcase of visual effects mastery with our dynamic portfolio."
+        desc:"Dive into a mesmerizing showcase of visual effects mastery with our dynamic portfolio. Note: You must be well versed with Premiere Pro and DaVinci Resolve."
     },
     {
         id:15,
         portfolio:"Web & App",
-        desc:"Display your ultimate development skills and rule Mindspark with the clicks of your mouse and keyboard."
+        desc:"Display your ultimate development skills and rule MindSpark with the clicks of your mouse and keyboard."
     },
     
     
