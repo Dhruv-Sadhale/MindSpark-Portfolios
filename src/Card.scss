@@ -1,11 +1,11 @@
-$optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC, #AC92EC, #AC92EC, #AC92EC, #AC92EC;
+$optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC, #AC92EC, #AC92EC, #AC92EC, #AC92EC,#AC92EC,#AC92EC;
 $darkColor: #232223; // Dark color for icons
 
 .cardContainer-parent {
   position: relative; // Ensure relative positioning for z-index and absolute children
   display: flex;
   flex-direction: column;
-  justify-content:baseline;
+  justify-content: baseline;
   align-items: center;
   overflow-y: auto;
   height: 5000px; // Adjust this height as needed
@@ -61,7 +61,7 @@ $darkColor: #232223; // Dark color for icons
         display: flex;
         position: absolute;
         right: 0px;
-        height: auto;
+        height: 100%;
         top: 50%;
         left: 0; // Start label content from leftmost part of the card
         transform: translateY(-50%);
@@ -94,14 +94,17 @@ $darkColor: #232223; // Dark color for icons
           align-items: center; // Center align content horizontally
           margin-left: 10px;
           color: white;
-          white-space: pre-wrap;
-          word-wrap: break-word; /* Allows long words to break and wrap to the next line */
+          width: 1000px; // Ensure .info spans the entire width of .option
+          padding: 0 20px; // Optional: Add padding for spacing inside .info
           overflow: hidden;
+          
 
           .main {
             font-weight: bold;
             font-size: 1.2rem;
             opacity: 1; /* Ensure title is always visible */
+            text-transform: uppercase;
+          
             margin-bottom: 5px; /* Adjust spacing between title and additional text */
           }
 
@@ -114,6 +117,11 @@ $darkColor: #232223; // Dark color for icons
 
           .sub {
             transition-delay: .1s;
+            white-space: pre-wrap;
+            width: 100%;
+            padding-left: 20px;
+            text-align: center;
+            word-wrap: break-word; /* Allows long words to break and wrap to the next line */
           }
         }
       }
@@ -143,6 +151,7 @@ $darkColor: #232223; // Dark color for icons
 
           .info > div {
             opacity: 1; /* Show additional text when card is active */
+            
           }
         }
       }
@@ -177,3 +186,53 @@ $darkColor: #232223; // Dark color for icons
     }
   }
 }
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+  color: white;
+  width: 100%;
+  padding: 0 20px;
+  overflow: hidden;
+
+  .main {
+    font-weight: bold;
+    font-size: 1.2rem;
+    opacity: 1;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  > div:not(.main) {
+    position: relative;
+    transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
+    opacity: 0;
+    margin-top: 5px;
+    font-weight: bold;
+    &:before {
+      
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.2rem;
+    }
+    &:after {
+      
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 1.2rem;
+    }
+  }
+
+  .sub {
+    transition-delay: .1s;
+    white-space: pre-wrap;
+    width: 100%;
+    padding-left: 40px;
+    word-wrap: break-word;
+  }
+}
+

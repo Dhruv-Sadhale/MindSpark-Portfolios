@@ -49,5 +49,16 @@ const portfolios=[
         portfolio:"Web & Dev",
         desc:"Display your ultimate development skills and rule Mindspark with the clicks of your mouse and keyboard."
     },
+    {
+        id:11,
+        portfolio:"Refreshments and hospitality",
+        desc:"We cater the best hospitality in the fest, that is how we retain people coming to the fest."
+    },
+    {
+        id:12,
+        portfolio:"TechExpo",
+        desc:"The future of technology and supercars starts here: Join us at TechExpo and its exciting expos!"
+    },
+
 ]
 export default portfolios;
