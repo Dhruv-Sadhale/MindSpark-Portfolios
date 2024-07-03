@@ -6,17 +6,17 @@ const portfolios=[
     },
     {
         id:2,
-        portfolio:"Purchase",
-        desc:"A collection of assets or investments managed for optimal returns and growth."
+        portfolio:"Web & App",
+        desc:"Display your ultimate development skills and rule Mindspark with the clicks of your mouse and keyboard."
     },
     {
         id:3,
-        portfolio:"Accounts & Doc",
+        portfolio:"Accounts & Documentation",
         desc:"Master the art of organization, track every transaction and ensure every document is in perfect order."
     },
     {
         id:4,
-        portfolio:"PRO",
+        portfolio:"Public Relations and Outreach",
         desc:"This team effectively promotes the event to maximize public awareness and attendance through strategic marketing campaigns ensuring enthusiastic participation."
     },
     {
@@ -26,13 +26,13 @@ const portfolios=[
     },
     {
         id:6,
-        portfolio:"COG",
-        desc:"Gather funds by reaching out to alumni all across the world, as you connected with esteemed personalities and expand your network"
+        portfolio:"Corporate Outreach Group",
+        desc:"Gather funds by reaching out to alumni all across the world, as you connected with esteemed personalities and expand your network."
     },
     {
         id:7,
-        portfolio:"E&O",
-        desc:"Precision planning, flawless fun : The blueprint of MindSpark"
+        portfolio:"Events & Operations",
+        desc:"Transform your visions into flawless events with us, where every detail is meticulously planned and executed to perfection."
     },
     {
         id:8,
@@ -44,10 +44,11 @@ const portfolios=[
         portfolio:"Campus Management",
         desc:"Showcase your tech-inspired creativity to adorn the campus for the fest."
     },
+    
     {
         id:10,
-        portfolio:"Web & Dev",
-        desc:"Display your ultimate development skills and rule Mindspark with the clicks of your mouse and keyboard."
+        portfolio:"Purchase",
+        desc:"A collection of assets or investments managed for optimal returns and growth."
     },
     {
         id:11,
@@ -59,6 +60,12 @@ const portfolios=[
         portfolio:"TechExpo",
         desc:"The future of technology and supercars starts here: Join us at TechExpo and its exciting expos!"
     },
+    {
+        id:13,
+        portfolio:"Finance & Marketing",
+        desc:"Count On Us : MindSpark's Money Maestros."
+    },
+
 
 ]
 export default portfolios;

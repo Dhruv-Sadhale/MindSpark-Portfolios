@@ -22,7 +22,7 @@ function App() {
         <a href="/" className="MSLogoLink">
           <img className="MSLogo" src={logo} alt="logo" />
         </a>
-        <div>PORTFOLIOS</div>
+        <div className="heading">PORTFOLIOS</div>
         <div className="cardContainer-parent">
         <div className="cardContainer">
           {portfolios.map(createCard)}

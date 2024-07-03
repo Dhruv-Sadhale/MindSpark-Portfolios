@@ -1,4 +1,4 @@
-$optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC, #AC92EC, #AC92EC, #AC92EC, #AC92EC,#AC92EC,#AC92EC;
+$optionDefaultColours:#ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC, #967ADC, #DA4453, #F6BB42, #37BC9B, #3BAFDA, #967ADC, #AAB2BD;
 $darkColor: #232223; // Dark color for icons
 
 .cardContainer-parent {
@@ -8,7 +8,7 @@ $darkColor: #232223; // Dark color for icons
   justify-content: baseline;
   align-items: center;
   overflow-y: auto;
-  height: 5000px; // Adjust this height as needed
+  height: 2500px; // Adjust this height as needed
   font-family: 'Roboto', sans-serif;
   transition: .25s;
 
@@ -92,7 +92,7 @@ $darkColor: #232223; // Dark color for icons
           flex-direction: column;
           justify-content: flex-start; // Start content from the top
           align-items: center; // Center align content horizontally
-          margin-left: 10px;
+          margin-left: 0px;
           color: white;
           width: 1000px; // Ensure .info spans the entire width of .option
           padding: 0 20px; // Optional: Add padding for spacing inside .info
@@ -129,7 +129,7 @@ $darkColor: #232223; // Dark color for icons
       &.active {
         flex-grow: 10000;
         transform: scale(1);
-        max-width: 1000px; // Adjusted maximum width for active card
+        max-width: 1100px; // Adjusted maximum width for active card
         max-height: 600px; // Adjusted maximum height for active card
         margin: 0px;
         border-radius: 40px;
@@ -194,7 +194,7 @@ $darkColor: #232223; // Dark color for icons
   margin-left: 10px;
   color: white;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   overflow: hidden;
 
   .main {
