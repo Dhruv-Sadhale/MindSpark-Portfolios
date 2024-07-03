@@ -1,0 +1,39 @@
+.App {
+  position: relative; /* Ensure the App container has a relative position */
+}
+
+.content {
+  position: relative; /* Position content relative to the App container */
+  z-index: 2; /* Ensure content is above the Three.js background */
+}
+
+.MSLogoLink {
+  display: block; /* Ensures the link takes up the full width of its container */
+  text-align: center; /* Centers the image horizontally */
+  margin-bottom: 20px; /* Optional: Adds some space below the logo */
+  z-index: 3; /* Ensure logo is above both content and Three.js background */
+}
+
+.MSLogo {
+  max-width: 100px; /* Adjust as needed */
+  height: auto; /* Maintains aspect ratio */
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  z-index: 3; /* Ensure logo is above both content and Three.js background */
+}
+
+.BackgroundContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensure the Three.js background is behind everything */
+}
