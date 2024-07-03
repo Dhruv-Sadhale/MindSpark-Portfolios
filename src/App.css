@@ -10,6 +10,7 @@
 .MSLogoLink {
   display: block; /* Ensures the link takes up the full width of its container */
   text-align: center; /* Centers the image horizontally */
+  padding-right: 9px;
   margin-bottom: 20px; /* Optional: Adds some space below the logo */
   z-index: 3; /* Ensure logo is above both content and Three.js background */
 }

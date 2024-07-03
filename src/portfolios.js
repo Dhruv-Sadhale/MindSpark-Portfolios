@@ -72,7 +72,7 @@ const portfolios=[
     {
         id:14,
         portfolio:"VFX",
-        desc:"CDive into a mesmerizing showcase of visual effects mastery with our dynamic portfolio."
+        desc:"Dive into a mesmerizing showcase of visual effects mastery with our dynamic portfolio."
     },
     {
         id:15,
