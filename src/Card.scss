@@ -1,13 +1,13 @@
-$optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC;
+$optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC, #AC92EC, #AC92EC, #AC92EC, #AC92EC;
+$darkColor: #232223; // Dark color for icons
 
 .cardContainer-parent {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   overflow: hidden;
   height: 500px;
-
   font-family: 'Roboto', sans-serif;
   transition: .25s;
 
@@ -20,16 +20,15 @@ $optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC;
 
   .cardContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
     overflow: hidden;
-
     min-width: 600px;
     max-width: 900px;
     width: calc(100% - 100px);
     height: 400px;
 
-    @for $i from 0 through 5 {
+    @for $i from 0 through length($optionDefaultColours) - 1 {
       $width: 798px - $i * 80;
       @media screen and (max-width: $width) {
         .options {
@@ -41,7 +40,8 @@ $optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC;
     .option {
       position: relative;
       overflow: hidden;
-      min-width: 60px;
+      min-width: 200px; // Increased minimum width for inactive cards
+      min-height: 120px; // Increased minimum height for inactive cards
       margin: 10px;
       background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
       background-size: auto 120%;
@@ -76,18 +76,23 @@ $optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC;
 
         .icon {
           display: flex;
-          flex-direction: row;
           justify-content: center;
           align-items: flex-end; /* Align icon to the bottom of the card */
           min-width: 40px;
           max-width: 40px;
           height: 40px;
           border-radius: 100%;
-          background-color: white;
-          color: var(--defaultBackground);
-          font-size: 1.2rem; /* Adjust the font size as needed */
-          font-weight: bold; /* Adjust the font weight as needed */
-          text-transform: uppercase; /* Ensure uppercase letters */
+          background-color: $darkColor; // Use dark color for icon background
+          color: white; // Ensure icon text is visible
+          font-size: 1.2rem; // Adjust font size as needed
+          font-weight: bold; // Ensure icon text is bold
+          text-transform: uppercase; // Ensure uppercase letters
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          i {
+            font-size: 1.5rem; // Adjust icon size within the icon container
+          }
         }
 
         .info {
@@ -104,12 +109,14 @@ $optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC;
             font-weight: bold;
             font-size: 1.2rem;
             opacity: 1; /* Ensure title is always visible */
+            margin-bottom: 5px; /* Adjust spacing between title and additional text */
           }
 
           > div:not(.main) {
             position: relative;
             transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
             opacity: 0; /* Hide additional text when card is not active */
+            margin-top: 5px; /* Adjust spacing between additional text blocks */
           }
 
           .sub {
@@ -122,6 +129,7 @@ $optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC;
         flex-grow: 10000;
         transform: scale(1);
         max-width: 600px;
+        max-height: 500px; // Increased max height for active card
         margin: 0px;
         border-radius: 40px;
         background-size: auto 100%;
@@ -134,6 +142,7 @@ $optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+          flex-direction: row; // Display label content horizontally
 
           .info > div {
             opacity: 1; /* Show additional text when card is active */
@@ -144,6 +153,8 @@ $optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC;
       &:not(.active) {
         flex-grow: 1;
         border-radius: 30px;
+        min-width: 200px; // Ensure minimum width for inactive cards
+        min-height: 120px; // Ensure minimum height for inactive cards
 
         .shadow {
           bottom: -40px;
@@ -151,15 +162,13 @@ $optionDefaultColours: #ED5565, #FC6E51, #FFCE54, #2ECC71, #5D9CEC, #AC92EC;
         }
 
         .label {
-           /* Move label to the bottom of the card */
-          top:0%;
+          top: 0%; /* Move label to the bottom of the card */
           left: 45%;
-          bottom: 5%;
           transform: translateX(-50%);
+          flex-direction: column; // Display label content vertically
 
           .icon {
             opacity: 1; /* Ensure icon is always visible */
-            
           }
 
           .info > div {

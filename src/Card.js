@@ -12,12 +12,11 @@ function Card(props) {
   }, []); // Empty dependency array ensures useEffect runs only once (on mount)
   
   return (
-    
-    <div className="option " >
+    <div className="option">
       <div className="shadow"></div>
       <div className="label">
         <div className="icon">
-          {/* <i className={`fas ${props.icon}`}></i> */}
+          <i className={`fas ${props.icon}`}>{props.portfolio.charAt(0)}</i> {/* Display first letter of title in icon */}
         </div>
         <div className="info">
           <div className="main">{props.portfolio}</div>
@@ -25,7 +24,6 @@ function Card(props) {
         </div>
       </div>
     </div>
-    
   );
 }
 
